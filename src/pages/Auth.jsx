@@ -1,9 +1,9 @@
 import { Grid } from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
 import { AuthForm } from '../components/AuthForm';
-import { initAuthDb } from '../util/minioUtil';
+// import { initAuthDb } from '../util/minioUtil';
 
-initAuthDb();
+// initAuthDb();
 
 const Auth = (props) => {
   if (props.isLoggedIn) return <Redirect to="/dashboard" />;

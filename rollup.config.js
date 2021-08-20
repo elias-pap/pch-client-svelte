@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
+// import replace from '@rollup/plugin-replace';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -17,7 +18,7 @@ function serve() {
 	return {
 		writeBundle() {
 			if (server) return;
-			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
+			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev', '--single'], {
 				stdio: ['ignore', 'inherit', 'inherit'],
 				shell: true
 			});
@@ -56,6 +57,12 @@ export default {
 			browser: true,
 			dedupe: ['svelte']
 		}),
+		// replace({
+		// 	values: {
+		// 		'process.env.JWT_ENDPOINT': JSON.stringify('127.0.0.1'),
+		// 	},
+		// 	preventAssignment: true
+		// }),
 		commonjs(),
 
 		// In dev mode, call `npm run start` once

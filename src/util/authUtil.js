@@ -5,17 +5,22 @@ const getInitialAuthState = () => {
 };
 
 const handleLogin = async (credentials) => {
-  const user = await getUser(credentials.username);
-  if (
-    user &&
-    user.username === credentials.username &&
-    user.password === credentials.password
-  ) {
-    loginUser(user.username);
-    return true;
-  } else {
-    return false;
-  }
+  // Stub this method for now
+  // TODO implement JWT handling
+  loginUser(user.username);
+  return true;
+
+  // const user = await getUser(credentials.username);
+  // if (
+  //   user &&
+  //   user.username === credentials.username &&
+  //   user.password === credentials.password
+  // ) {
+  //   loginUser(user.username);
+  //   return true;
+  // } else {
+  //   return false;
+  // }
 };
 
 const loginUser = (username) => {
@@ -23,15 +28,19 @@ const loginUser = (username) => {
 };
 
 const handleSignup = async (credentials) => {
-  const username = credentials.username;
-  const userInDb = await isUserInDb(username);
-  if (!userInDb) {
-    await registerUser(credentials);
-    loginUser(username);
-    return true;
-  } else {
-    return false;
-  }
+  // Stub this method for now
+  // TODO implement JWT handling
+  return await handleLogin(credentials);
+
+  // const username = credentials.username;
+  // const userInDb = await isUserInDb(username);
+  // if (!userInDb) {
+  //   await registerUser(credentials);
+  //   loginUser(username);
+  //   return true;
+  // } else {
+  //   return false;
+  // }
 };
 
 const handleLogout = () => {
