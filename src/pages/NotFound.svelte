@@ -1,2 +1,13 @@
-<div>This page does not exist.</div>
-<a href="/">Go to home page </a>
+<script>
+  import { replace } from 'svelte-spa-router';
+  import { onMount } from 'svelte';
+
+  onMount(() => {
+    if (location.pathname === '/') {
+      replace('/auth');
+    } else {
+      location.pathname = '/';
+      replace('/');
+    }
+  });
+</script>
