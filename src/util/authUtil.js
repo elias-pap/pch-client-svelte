@@ -1,4 +1,4 @@
-import { getUser, isUserInDb, registerUser } from './minioUtil';
+// import { getUser, isUserInDb, registerUser } from './minioUtil';
 
 const getInitialAuthState = () => {
   return localStorage.getItem('user') ? true : false;
